@@ -1,0 +1,35 @@
+{{!< layout.hbs}}
+
+  <div>
+  <section id="projects">
+    <h2>Work Projects</h2>
+    <p>Some of my recent work projects (for money)</p>
+    <div class="items">
+    {{#each contents.projects}}
+        <div class="item">
+            <a href="#"><img src="{{this.metadata.image}}" /></a>
+            <p>{{this.metadata.title}}</p>
+            <div class="details">
+                Details
+            </div>
+        </div>
+    {{/each}}
+    </div>
+  </section>
+  <section id="music">
+    <h2>Music</h2>
+    <p>In addition to Front End Development, I also record, produce and play music primarily using all-analog techniques and gear.</p>
+    <div class="items">
+    {{#each contents.music}}
+        <div class="item">
+            <a href="#"><img src="{{this.metadata.image}}" /></a>
+            <p>{{this.metadata.title}}</p>
+            <div class="details">
+                Details
+            </div>
+        </div>
+    {{/each}}
+    </div>
+  </section>
+    {{{page.html}}}
+  </div>

@@ -1,0 +1,168 @@
+// Your custom SCSS should be written here...
+body {
+    background: url("/img/css/parchment.png") repeat fixed 0 0 transparent;
+    font-family: 'Lucida Sans Unicode','Lucida Grande',sans-serif;
+}
+
+.container {
+    border-left: 9px solid #000;
+}
+
+h1 {
+    color: #fff;
+    font-size: $norm;
+}
+
+header:after {
+    -moz-transform: skew(-3deg, -3deg);
+    -moz-transform-origin: left top;
+    background: url("/img/css/parchment.png") repeat fixed 0 0 transparent;
+    border-color: #000000;
+    border-radius: 65px 0 0 0;
+    border-style: solid;
+    border-width: 18px 0 0 1px;
+    content: "";
+    height: 40px;
+    left: -1px;
+    position: absolute;
+    top: 35px;
+    width: 90px;
+    z-index: 1;
+}
+
+header:before {
+    background: none repeat scroll 0 0 #000000;
+    border-left: 1px solid #000000;
+    content: "";
+    height: 51px;
+    left: -1px;
+    position: absolute;
+    top: 39px;
+    width: 40px;
+    z-index: 1;
+}
+
+header {
+    background-color: #000000;
+    color: #fff;
+    height: 53px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 14px 0 0 0;
+
+    .content {
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    h1 {
+        font-family: 'Holtwood One SC',serif;
+        letter-spacing: 4px;
+        float: left;
+        z-index: 1006;
+        width: 29%;
+        margin: 0 0 0 1%;
+    }
+
+    h1:first-letter {
+        font-size: 141%;
+        margin-right: 0;
+    }
+    
+    nav {
+        float: left;
+        width: 68%;
+        margin-left: 2%;
+    }
+
+    a {
+        color: #999999;
+        font-weight: bold;
+        font-size: $small;
+        @include single-transition(color, 1s);
+    }
+    
+    a:hover {
+        color: #ffffff;
+    }
+    
+    ul li {
+        float: left;
+        margin-right: 17px;
+    }
+}
+        
+    div[role] {
+        @include row();
+        min-height: 100px;
+        margin: 0 auto 0;
+        padding-top: 100px;
+    }
+
+section {
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 0 -1px 7px rgba(78, 68, 60, 0.3);
+    background-color: rgba(210, 200, 255, 0.4);
+    padding: 12px 12px 0;
+    margin: 16px 0;
+    overflow: hidden;
+    clear: both;
+        
+    h2 {
+        font-size: $med;
+        font-weight: $font-weight-bold;
+        border-bottom: 1px inset black;
+    }
+
+    h3 {
+        font-size: $small;
+        font-weight: $font-weight-bold;
+    }
+
+    p, ul {
+        font-size: $small;
+    }
+
+    .items {
+        clear: both;
+        height: 325px;
+    }
+
+    .details {
+        display: none;
+    }
+        
+    .item {
+        float: left;
+        margin: 0 15px;
+        box-shadow: 0 -1px 7px rgba(78, 68, 60, 0.3);
+        border-radius: 4px;
+        padding: 10px;
+        background-color: rgba(0,0,0,0);
+        @include single-transition(background-color, 1s);
+     }
+            
+     .item:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+     }
+ }
+
+footer {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    width: 100%;
+    padding-top: 2px;
+    min-height: 75px;
+    text-align: center;
+
+    img {
+        opacity: 1;
+        @include single-transition(opacity, .5s);
+    }
+
+    img:hover {
+        opacity: .6;
+    }
+}

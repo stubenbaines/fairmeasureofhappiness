@@ -1,0 +1,21 @@
+{
+  "locals": {
+    "url": "http://localhost:8080",
+    "name": "A Fair Measure of Happiness",
+    "owner": "Dennis Pierce",
+    "description": "Front-end web developer"
+  },
+  "plugins": [
+    "./plugins/fuckcoffeescript.coffee",
+    "wintersmith-handlebars"
+  ],
+  "require": {
+    "moment": "moment",
+    "_": "underscore",
+    "typogr": "typogr"
+  },
+  "markdown": {
+    "smartLists": true,
+    "smartypants": true
+  }
+}

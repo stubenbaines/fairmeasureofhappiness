@@ -1,0 +1,164 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link href='http://fonts.googleapis.com/css?family=Holtwood+One+SC' rel='stylesheet' type='text/css'>
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except this Modernizr build incl. Respond.js
+       Respond is a polyfill for min/max-width media queries. Modernizr enables HTML5 elements & feature detects; 
+       for optimal performance, create your own custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Dennis Pierce</h1>
+    
+    <nav>
+        <ul>
+        <li><a href="#projects">Web Portfolio</a></li>
+        <li><a href="#music">Music Portfolio</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <div role="main">
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Some of my recent front end projects</p>
+        <div class="items">
+            <div class="item"><a data-item="breakout" class="show-details" href="#more-details"><img src="img/breakout_thumb.jpg" /><p>HTML5 Breakout Game</p></a>
+                <div data-item="breakout" class="details">
+                    <img src="img/breakout.jpg" />
+                    <h3>Breakout</h3>
+                    <p>I was looking for an excuse to learn HTML5 canvas and game building so I put together a version of Breakout. It's built using Canvas and pure Javascript.<span class="site"><a href="http://leahbethfishman.com" target="_blank">Play Breakout</a></span></p>
+                </div>
+                
+            </div>
+            <div class="item"><a data-item="leah" class="show-details" href="#more-details"><img src="img/leah_thumb.jpg" /><p>Leah Fishman's Artwork</p></a>
+                 <div data-item="leah" class="details">
+                    <img src="img/leah.jpg" />
+                    <h3>Leah Beth Fishman</h3>
+                    <p>Leah is a friend and a top gilder. Her work has been featured in the White House and many fine establishments. In addition to gilding she's also a talented graphic and web designer. I built her portfolio site using HTML5 and jQuery.<span class="site"><a href="http://leahbethfishman.com" target="_blank">Visit Leah's site</a></span></p>
+                </div>
+                
+            </div>
+            <div class="item"><a data-project="fatowl"><img src="img/fpo_thumb.jpg" /><p>Fat Owl Chocolates</p></a></div>
+        </div>
+    </section>
+    <section id="music">
+        <h2>Music</h2>
+        <p>In addition to Front End Development, I also record, produce and play music primarily using all-analog techniques and gear.</p>
+        <div class="items">
+            <div class="item"><a class="show-details" data-item="chalk" href="#more-details"><img src="img/chalk_thumb.jpg" /><p>Chalk and Numbers</p></a>
+                <div data-item="chalk" class="details">
+                    <img src="img/chalk.jpg" />
+                    <h3>Chalk and Numbers</h3>
+                    <p>Chalk and Numbers are a duo that writes and performs 60s-inspired pop. I did most of the engineering and played guitar on their debut album. We wanted to get the sound of Phil Spector and Brian Wilson's mid-60s recordings so we used a good amount of spring reverb, tape echo, and performed a bunch of bouncedowns. Everything was recorded on to tape. <span class="site"><a href="http://bandcamp.com" target="_blank">Visit Chalk and Numbers' Bandcamp page</a></span></p>
+                </div>
+            </div>
+            <div class="item"><a class="show-details" data-item="nouvellas" href="#more-details"><img src="img/nouvellas_thumb.jpg" /><p>Nouvellas</p></a>
+                <div data-item="nouvellas" class="details">
+                    <img src="img/nouvellas_thumb.jpg" />
+                    <h3>Nouvellas</h3>
+                    <p>The Nouvellas are a band I play guitar in. We've released one album on Ernest Jenning Records and play live shows primarily in the NYC area. <span class="site"><a href="http://nouvellas.com" target="_blank">Visit Nouvellas site</a></span></p>
+                </div>
+                
+                
+            </div>
+        </div>
+        
+    </section>
+        <section id="about">
+        <h2>About Me</h2>
+        <p>In addition to Front End Development, I also record, produce and play music primarily using all-analog techniques and gear. I also to other stuff.</p>
+        <aside>
+            <h3>Skills</h3>
+            <ul>
+                <li>Javascript</li>
+                <li>HTML5/CSS3</li>
+                <li>CMS Integration</li>
+                <li>Server-side scripting languages. </li>
+            </ul>
+        </aside>
+        
+    </section>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>If you are interested in contacting me for freelance work, you can reach me via email at
+            <br />
+            dennispierce [at] fairmeasureofhappiness.com</p>
+        <h3>Other Sites</h3>
+        <ul>
+            <li>linkedin</li>
+            <li>Github</li>
+        </ul>
+        
+    </section>
+  </div>
+  <div style="display:none">
+  <div id="more-details">
+      
+  </div>
+  </div>
+  <footer>
+    <p>Copyright &copy; 2011 <a href="http://fairmeasureofhappiness.com">A Fair Measure of Happiness, <abbr>LLC</abbr></a>. All rights reserved. Hosted by <a href="http://www.fucks.net">Web Faction</a>.</p>
+    <p id="footer-logo"><a href="http://fairmeasureofhappiness.com"><img alt="Fair Measure of Happiness Logo" src="img/logo.png"></a></p>
+</footer>
+
+
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.4.min.js"><\/script>')</script>
+
+
+  <!-- scripts concatenated and minified via build script -->
+  <script defer src="js/plugins.js"></script>
+  <script defer src="js/script.js"></script>
+  <!-- end scripts -->
+
+
+  <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+       mathiasbynens.be/notes/async-analytics-snippet -->
+  <script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview'],['_trackPageLoadTime']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+</body>
+</html>
