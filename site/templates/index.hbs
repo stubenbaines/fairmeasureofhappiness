@@ -1,31 +1,49 @@
 {{!< layout.hbs}}
 
   <div>
-  <section id="projects">
+  <section data-target="projects">
     <h2>Work Projects</h2>
-    <p>Some of my recent work projects (for money)</p>
+    <p>Some of my recent work projects (for cash money)</p>
     <div class="items">
     {{#each contents.projects}}
         <div class="item">
-            <a href="#"><img src="{{this.metadata.image}}" /></a>
+            <a class="switch" gumby-trigger="#proj-{{date this.date}}" href="#"><img src="{{this.metadata.thumb}}" /></a>
             <p>{{this.metadata.title}}</p>
-            <div class="details">
-                Details
+            <div class="details modal" id="proj-{{date this.date}}">
+                <div class="content">
+                    <a class="close switch" gumby-trigger="|#proj-{{date this.date}}"><i class="icon-cancel" /></i></a>
+                    <div class="row">
+                        <div class="ten columns centered text-center">
+                            <h2>{{this.metadata.title}}</h2>
+                            <p>{{this.metadata.summary}}</p>
+                            <a href="{{this.url}}">More details</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     {{/each}}
     </div>
   </section>
-  <section id="music">
+  <section data-target="music">
     <h2>Music</h2>
-    <p>In addition to Front End Development, I also record, produce and play music primarily using all-analog techniques and gear.</p>
+    <p>I record, produce and play music using all-analog techniques and gear. All of the recordings were recorded and mixed to analog tape and use no digital tricks (autotune, edits, comping parts). Music I've recorded/produced has been featured on TV Shows (MTV, CBS) commercials (Nike) and major and indie movie soundtracks.</p>
     <div class="items">
     {{#each contents.music}}
         <div class="item">
-            <a href="#"><img src="{{this.metadata.image}}" /></a>
+            <a class="switch" gumby-trigger="#proj-{{date this.date}}" href="#"><img src="{{this.metadata.thumb}}" /></a>
             <p>{{this.metadata.title}}</p>
-            <div class="details">
-                Details
+            <div class="details modal" id="proj-{{date this.date}}">
+                <div class="content">
+                    <a class="close switch" gumby-trigger="|#proj-{{date this.date}}"><i class="icon-cancel" /></i></a>
+                    <div class="row">
+                        <div class="ten columns centered text-center">
+                            <h2>{{this.metadata.title}}</h2>
+                            <p>{{this.metadata.summary}}</p>
+                            <a href="{{this.url}}">More details</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     {{/each}}

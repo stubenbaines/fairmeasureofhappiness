@@ -51,10 +51,10 @@
         
         <nav>
             <ul>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#music">Music</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#" class="skip" gumby-goto="[data-target='projects']" gumby-offset="-100">Projects</a></li>
+            <li><a href="#" class="skip" gumby-goto="[data-target='music']" gumby-offset="-100">Music</a></li>
+            <li><a href="#" class="skip" gumby-goto="[data-target='about']" gumby-offset="-100">About</a></li>
+            <li><a href="#" class="skip" gumby-goto="[data-target='contact']" gumby-offset="-100">Contact</a></li>
             </ul>
         </nav>
     </div>
@@ -64,7 +64,7 @@
   </div>
 
   <footer>
-    <p>Copyright &copy; 2011 <a href="http://fairmeasureofhappiness.com">A Fair Measure of Happiness, <abbr>LLC</abbr></a>. All rights reserved. Hosted by <a href="http://www.fucks.net">Web Faction</a>.</p>
+    <p>Copyright &copy; 2014 <a href="http://fairmeasureofhappiness.com">A Fair Measure of Happiness, <abbr>LLC</abbr></a>. All rights reserved.</p>
     <p id="footer-logo"><a href="http://fairmeasureofhappiness.com"><img alt="Fair Measure of Happiness Logo" src="/img/logo.png"></a></p>
   </footer>
 </div>
@@ -103,9 +103,9 @@
   <script type="text/javascript" src="/js/libs/slick.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function(){
-        $('.items').slick({
-dots : true,
-slidesToShow : 3
+        $('.itemsz').slick({
+            slidesToShow : 3,
+            infinite : false
         });
     });
   </script>

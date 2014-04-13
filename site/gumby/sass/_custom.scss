@@ -125,15 +125,17 @@ section {
         font-size: $small;
     }
 
+    p {
+        font-weight: bold;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
     .items {
         clear: both;
         height: 325px;
     }
-
-    .details {
-        display: none;
-    }
-        
+  
     .item {
         float: left;
         margin: 0 15px;
