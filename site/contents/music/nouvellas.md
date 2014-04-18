@@ -1,12 +1,15 @@
 ---
-title: Nouvellas 
-date: 2013-06-15
-summary: A portfolio site powered by Node.js
+title: Never Go Home EP 
+artist: Nouvellas
+date: 2012-10-07
+summary: Jon Gonnelli plays the role of Billy Preston and eases tensions within the Nouvellas by providing just the right touches on 2nd guitar.  
 template: music.hbs
-image: /assets/img/portfolio.png
-technology: html, javascript, css 
-tags: web
-url: http://bandcamp.com
+image: /img/music/nouvellas.jpg
+thumb: /img/music/nouvellas_thumb.jpg
+url: http://nouvellas.bandcamp.com/ 
+player: <iframe src="http://bandcamp.com/EmbeddedPlayer/album=645268371/size=small/bgcol=333333/linkcol=ffffff/artwork=none/transparent=true/" seamless><a href="http://nouvellas.bandcamp.com/album/never-go-home-ep">Never Go Home EP by Nouvellas</a></iframe>
 ---
-Chalk and Numbers are a duo that writes and performs 60s-inspired pop. I did most of the engineering and played guitar on their debut album. We wanted to get the sound of Phil Spector and Brian Wilson's mid-60s recordings so we used a good amount of spring reverb, tape echo, and performed a bunch of bouncedowns. Everything was recorded on to tape. Visit Chalk and Numbers' Bandcamp page
+The Nouvellas was a band I played in until we went on hiatus a few years ago. We put out a full length album and these 2 songs were the first part of the 2nd album we were writing. Our first album was mostly straight-ahead rock/soul so naturally for the 2nd recording we were going to "expand" our sound. We added a bit more production on these 2 songs were in contrast to the first album was mostly recorded live in the studio. Never Go Home is a rockabilly inspired song that features some ripping
+harmonica and no less than 3 guitars. We ended up recording the vocals with the effects on them so they went down to the reverb and echo burned in. There's something to be said for making a decision during the recording rather than the mix.
 
+The Ballad of Lee Mellon draws more from late 60s British folk/rock which in my opinion is an overlooked genre due for someone to revive. Jaime does a great ethereal vocal in the tradition of Sandy Denny and like Never Go Home, this track features Jon Gonnelli weaving his guitar lines in with mine. THis was the only Nouvellas songs where I did a tape bounce which I normally reserve for Chalk and Numbers songs.

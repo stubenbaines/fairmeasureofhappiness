@@ -4,7 +4,8 @@ date: 2013-06-15
 type: work
 summary: A portfolio site powered by Node.js
 template: project.hbs
-image: /img/projects/leah_thumb.jpg
+image: /img/projects/leah.jpg
+thumb: /img/projects/leah_thumb.jpg
 technology: html, javascript, css 
 tags: web
 url: http://leahbethfishman.com

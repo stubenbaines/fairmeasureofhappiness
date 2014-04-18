@@ -5,6 +5,7 @@ type: personal
 summary: A PHP API to interact with the Instagram API. 
 template: project.hbs
 image: /img/projects/leah_thumb.jpg
+thumb: /img/projects/leah_thumb.jpg
 technology: php, git 
 tags: php, instagram, api 
 url: https://github.com/stubenbaines/InstagramPhpApi

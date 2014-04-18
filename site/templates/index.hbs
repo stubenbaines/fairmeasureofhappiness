@@ -3,45 +3,49 @@
   <div>
   <section data-target="projects">
     <h2>Work Projects</h2>
-    <p>Some of my recent work projects (for cash money)</p>
-    <div class="items">
+    <p>Some of my recent web development projects.</p> 
+    <div class="grid-items">
     {{#each contents.projects}}
-        <div class="item">
-            <a class="switch" gumby-trigger="#proj-{{date this.date}}" href="#"><img src="{{this.metadata.thumb}}" /></a>
-            <p>{{this.metadata.title}}</p>
-            <div class="details modal" id="proj-{{date this.date}}">
+        <div class="grid-item">
+            <div class="front" style="background-image: url('{{this.metadata.thumb}}');">
+                <div class="copy">
+                    <h3>{{this.metadata.title}}</h3>
+                </div>
+                <div class="overlay"></div>
+            </div>
+            <div class="back">
                 <div class="content">
-                    <a class="close switch" gumby-trigger="|#proj-{{date this.date}}"><i class="icon-cancel" /></i></a>
-                    <div class="row">
-                        <div class="ten columns centered text-center">
-                            <h2>{{this.metadata.title}}</h2>
-                            <p>{{this.metadata.summary}}</p>
-                            <a href="{{this.url}}">More details</a>
-                        </div>
+                    <div class="copy">
+                        <p>{{{this.metadata.summary}}}</p>
+                        <a href="{{this.url}}">More details</a>
                     </div>
                 </div>
             </div>
         </div>
-    {{/each}}
+   {{/each}}
     </div>
   </section>
-  <section data-target="music">
+  <section class="music">
     <h2>Music</h2>
     <p>I record, produce and play music using all-analog techniques and gear. All of the recordings were recorded and mixed to analog tape and use no digital tricks (autotune, edits, comping parts). Music I've recorded/produced has been featured on TV Shows (MTV, CBS) commercials (Nike) and major and indie movie soundtracks.</p>
-    <div class="items">
+    <div class="grid-items">
     {{#each contents.music}}
-        <div class="item">
-            <a class="switch" gumby-trigger="#proj-{{date this.date}}" href="#"><img src="{{this.metadata.thumb}}" /></a>
-            <p>{{this.metadata.title}}</p>
-            <div class="details modal" id="proj-{{date this.date}}">
+        <div class="grid-item">
+            <div class="front" style="background-image: url('{{this.metadata.thumb}}');">
+                <div class="copy">
+                    <h3>{{this.metadata.title}}</h3>
+                </div>
+                <div class="overlay"></div>
+            </div>
+            <div class="back">
                 <div class="content">
-                    <a class="close switch" gumby-trigger="|#proj-{{date this.date}}"><i class="icon-cancel" /></i></a>
-                    <div class="row">
-                        <div class="ten columns centered text-center">
-                            <h2>{{this.metadata.title}}</h2>
-                            <p>{{this.metadata.summary}}</p>
-                            <a href="{{this.url}}">More details</a>
-                        </div>
+                    <div class="header">
+                        <p><strong>Artist:</strong> {{this.metadata.artist}}</p>
+                        <p><strong>Release:</strong> {{this.title}}</p>
+                    </div>
+                    <div class="copy">
+                        <p>{{{this.metadata.summary}}}</p>
+                        <a href="{{this.url}}">More details</a>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,17 @@
 {{!< layout.hbs}}
 
-  <div>
-    I'm a project. 
-  </div>
+<div class="music">
+    <div class="header">
+        <h2>{{page.title}}</h2>
+        <h3>{{page.metadata.artist}}</h3>
+        <div class="released">Released: {{date}}</div>
+    </div>
+    <div class="content">
+        <img src="{{page.metadata.image}}" />
+        <div class="description">
+            {{{page.html}}}
+        </div>
+        {{{page.metadata.player}}}
+        <a href="{{page.metadata.url}}">Go to official release page</a>
+    </div>
+</div>

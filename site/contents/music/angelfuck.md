@@ -1,7 +1,8 @@
 ---
-title: Angelfuck by Chalk and Numbers 
+title: Angelfuck
+artist: Chalk and Numbers
 date: 2014-02-11
-summary: Misfits cover by Chalk and Numbers 
+summary: Imagine if Phil Spector had produced a Misfits song and hired Clarence White to sit in on guitar.
 template: music.hbs
 image: /img/music/angelfuck.jpg
 thumb: /img/music/angelfuck_thumb.jpg

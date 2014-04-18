@@ -1,0 +1,515 @@
+@import 'normalize-css/normalize';
+@import 'bourbon/bourbon';
+@import 'bitters/bitters';
+@import 'neat/neat';
+$sans-serif: 'Questrial', sans-serif;
+$serif: 'Sanchez', serif;
+$type-ratio: 1.250; // Major third
+
+.show {
+    display: block;
+}
+
+.hide {
+  display: none;
+}
+
+  .type {
+    border-bottom: 1px solid;
+    display: inline-block;
+    font-family: $sans-serif;
+    font-size: .7em;
+    font-weight: 800;
+    margin-bottom: 2em;
+    padding: .3em 0;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-family: $serif;
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: .5em;
+
+    @include media($medium-screen) {
+      font-size: 2.6em;
+    }
+  }
+
+  h2 {
+    font-family: $sans-serif;
+    font-size: modular-scale($base-font-size, 3, $type-ratio);
+    font-weight: 400;
+    line-height: 1.4em;
+    margin-bottom: 1.1em;
+
+    @include media($medium-screen) {
+      font-size: modular-scale($base-font-size, 3, $type-ratio);
+    }
+  }
+
+  h3 {
+    font-family: $sans-serif;
+    font-size: modular-scale($base-font-size, 2, $type-ratio);
+    font-weight: 400;
+    line-height: 1.3em;
+    margin-bottom: .4em;
+  }
+
+  p.date {
+    color: transparentize($base-font-color, .6);
+    font-family: $serif;
+    font-style: italic;
+    font-size: .9em;
+    margin-bottom: .3em;
+  }
+
+  p {
+    font-family: $sans-serif;
+    line-height: 1.5em;
+    font-size: modular-scale($base-font-size, 0, $type-ratio);
+    margin-bottom: 1.5em;
+  }
+
+  a.read-more {
+    display: inline-block;
+    font-family: $sans-serif;
+    font-weight: 700;
+    font-size: .8em;
+    text-transform: uppercase;
+    margin-left: .2em;
+    position: relative;
+
+    span {
+      font-family: $sans-serif;
+      font-style: normal;
+      position: absolute;
+      font-size: 1.5em;
+      top: -1px;
+      right: -12px;
+    }
+  }
+  
+  hr {
+    width: 3em;
+  }
+
+  p.author {
+    font-family: $sans-serif;
+  }
+
+
+@mixin grid-item-columns($columns) {
+  width: (100% / 12) * $columns;
+}
+
+.grid-items {
+  $grid-items-background: rgba(210, 200, 255, 0);
+  $grid-item-background: desaturate($base-accent-color, 30); 
+  $grid-item-colors: 
+    desaturate($base-accent-color, 30), 
+    #536A8B,
+    #625A92,
+    #4B877B, 
+    #495568,
+    #534E6D, 
+    #43655E;
+  $grid-item-border-size: 9px;
+  $grid-item-columns: 4;
+  $grid-item-big-columns: 8;
+  $grid-item-color: #fff;
+  $grid-item-height: 14em;
+
+  $card-background-color: #ddd;
+  $card-border-color: $base-border-color;
+
+
+  $transparency-top: .6;
+  $image-gradient-color-bottom: #000; 
+  $transparency-bottom: .6;
+  $vertical-angle: 180deg;
+
+  $transparency-left: .9;
+  $image-gradient-color-right: #000; 
+  $transparency-right: .8;
+  $horizontal-angle: 90deg;
+
+  @include clearfix;
+    
+  .grid-item {
+    height: $grid-item-height;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+    position: relative;
+    padding: 2em;
+    border-top: 0;
+    border-bottom: $grid-item-border-size solid $grid-items-background;
+    border-left: $grid-item-border-size /2 solid $grid-items-background;
+    border-right: $grid-item-border-size /2 solid $grid-items-background;
+    text-align: center;
+    cursor: pointer;
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-columns);
+    }
+
+    @include perspective(1000px);
+
+    /* front pane, placed above back */
+    .front {
+      @include transition (all 0.4s ease-out);
+      top: 0;
+      left: 0;
+      z-index: 900;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: $grid-item-background;
+      background-size: cover;
+      background-position: top;
+      background-repeat: no-repeat;
+  
+    
+
+    @for $i from 1 to 8 { 
+      // assign colors from $grid-item-colors list
+      &:nth-child(#{$i}) {
+        $background-from-list: nth($grid-item-colors, $i);
+        background-color: $background-from-list;
+        box-shadow: inset 0px 0px 1px 2px darken($background-from-list, 10);
+        &:hover {
+          background-color: darken($background-from-list, 10);
+          background-repeat: no-repeat;
+          background-position: top;
+          background-size: cover;
+        }
+
+        .overlay {
+          @include transition (all 0.4s ease-out);
+          @include linear-gradient($vertical-angle, transparentize($background-from-list, $transparency-top), 
+            transparentize($image-gradient-color-bottom, $transparency-bottom));
+          display: block;
+          @include position(absolute, 0px 0px 0px 0px);
+
+          /*
+          &:after {
+            content: '';
+            @include linear-gradient($horizontal-angle, transparentize($background-from-list, $transparency-left), 
+              transparentize($image-gradient-color-right, $transparency-right));
+            display: block;
+            @include position(absolute, 0px 0px 0px 0px);
+          }
+          */
+          &:hover {
+            @include linear-gradient($vertical-angle, transparentize($background-from-list, 1), 
+            transparentize($image-gradient-color-bottom, 1));
+          }
+        }
+      }
+    }
+    
+
+    img {
+      display: block;
+      height: 3em;
+      margin: auto;
+      margin-bottom: 1em;
+    }
+
+    .copy {
+      position: absolute;
+      left: 50%;
+      margin: auto;
+      z-index: 999;
+      top: 40%;
+      text-align: center;
+      h3 {
+        padding: 1em 2em;
+        border-radius: 1.5em;
+        position: relative;
+        left: -50%;
+        font-weight: 800;
+        font-size: modular-scale($base-font-size, -2, $type-ratio);
+        background-color: transparentize(black, .6);
+        color: $grid-item-color;
+        margin-bottom: .4em;
+      }
+    }
+
+    }
+    
+
+    /* back, initially hidden pane */
+    .back {
+      @include transition (all 0.4s ease-out);
+      z-index:700;
+      position: absolute;
+      background-color: $card-background-color;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      @include transform(rotateY(-180deg));
+      @include backface-visibility(hidden);
+      text-align: left;
+      padding: 1em;
+      .header {
+          border-bottom: 1px solid $card-border-color; 
+      }
+
+      p {
+        font-size: modular-scale($base-font-size, -2, $type-ratio);
+      }
+    }
+
+    &.flip .back {
+      z-index: 900;
+      @include transform(rotateY(0deg));
+    }
+
+    &.flip .front {
+      z-index: 700;
+      @include transform(rotateY(180deg));
+    }
+
+  }
+
+}
+
+body {
+    background: url("/img/css/parchment.png") repeat fixed 0 0 transparent;
+    @include clearfix;
+    text-align: left;
+    font-family: 'Lucida Sans Unicode','Lucida Grande',sans-serif;
+}
+
+.container {
+    border-left: 9px solid #000;
+}
+
+
+header {
+    background-color: #000000;
+    color: #fff;
+    height: 53px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 14px 0 0 0;
+    z-index: 1;
+
+    &:before {
+      background: none repeat scroll 0 0 #000000;
+      border-left: 1px solid #000000;
+      content: "";
+      height: 42px;
+      left: -1px;
+      position: absolute;
+      top: 39px;
+      width: 20px;
+      z-index: 1;
+    }
+
+    &:after {
+      -moz-transform: skew(-3deg, -3deg);
+      -moz-transform-origin: left top;
+      background: transparent;
+      border-color: #000000;
+      border-radius: 65px 0 0 0;
+      border-style: solid;
+      border-width: 18px 0 0 1px;
+      content: "";
+      height: 40px;
+      left: -1px;
+      position: absolute;
+      top: 35px;
+      width: 90px;
+      z-index: 2;
+    }
+    .content {
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+        z-index: 3;
+    }
+
+    h1 {
+        font-family: 'Holtwood One SC',serif;
+        letter-spacing: 4px;
+        color: #fff;
+        font-size: modular-scale($base-font-size, 2, $type-ratio);
+        float: left;
+        z-index: 1006;
+        width: 29%;
+        margin: 0 0 0 1%;
+    }
+
+    h1:first-letter {
+        font-size: 141%;
+        margin-right: 0;
+    }
+    
+    nav {
+        float: left;
+        width: 68%;
+        margin-left: 2%;
+    }
+
+    a {
+        color: #999999;
+        font-weight: bold;
+        font-size: modular-scale($base-font-size, -1, $type-ratio);
+        @include transition (color 1.0s);
+    }
+    
+    a:hover {
+        color: #ffffff;
+    }
+    
+    ul li {
+        float: left;
+        margin-right: 17px;
+    }
+}
+        
+    div[role] {
+        @include outer-container;
+        min-height: 100px;
+        margin: 0 auto 0;
+        padding-top: 100px;
+    }
+
+section {
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 0 -1px 7px rgba(78, 68, 60, 0.3);
+    background-color: rgba(210, 200, 255, 0.4);
+    padding: 12px 12px 0;
+    margin: 16px 0;
+    overflow: hidden;
+    clear: both;
+        
+    h2 {
+        font-weight: 700;
+        border-bottom: 1px inset black;
+    }
+
+    h3 {
+        font-weight: 700;
+    }
+
+    p {
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+
+    .modal {
+      display: none;
+    }
+
+ }
+
+footer {
+  $footer-background: desaturate(darken(#000, 20), 30);
+  $footer-color: #fff;
+  $footer-link-color: transparentize($footer-color, .6);
+  $footer-disclaimer-color: transparentize($footer-color, .6);
+
+  background: $footer-background;
+  padding: $base-line-height $base-line-height 0;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  .footer-logo {
+    margin-right: 1em;
+    margin-bottom: 1em;
+
+    @include media($large-screen) {
+      float: left;
+      margin-bottom: 0;
+    }
+  }
+
+  .footer-logo img {
+    height: 1.6em;
+  } 
+
+  ul {
+    margin-bottom: 1em;
+    @include media($large-screen) {
+      float: left;
+      margin-left: 1em;
+      margin-bottom: 0;
+    }
+  }
+
+  ul li {
+    padding-right: 1em;
+    font-weight: 800;
+    color: $footer-link-color;
+
+    @include media($large-screen) {
+      display: inline;
+      text-align: left;
+    }
+  }
+
+  ul li a {
+    color: $footer-link-color;
+
+    &:hover {
+      color: transparentize($footer-color, 0);
+    }
+  }
+
+  .footer-secondary-links {
+    @include media($large-screen) {
+      float: right;
+    }
+
+    li {
+      font-size: .8em;
+      font-weight: 400;
+    }
+
+    ul.footer-social {
+      margin-top: 1em;
+
+      @include media($large-screen) {
+        float: right;
+        margin-top: 0;
+      }
+
+      li {
+        float: left;
+        font-size: 1em;
+        padding-right: .7em;
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+
+      img {
+        opacity: .7;
+        height: 1.9em;
+        padding: 1px;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+
+.music {
+    iframe {
+        border: 0;
+        width: 100%;
+        height: 42px;
+    }
+}
+
