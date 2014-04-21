@@ -13,6 +13,12 @@ $type-ratio: 1.250; // Major third
 .hide {
   display: none;
 }
+body {
+  $sans-serif: 'Nunito', sans-serif;
+  $sans-serif-2: 'Varela Round', sans-serif;
+
+  @include clearfix;
+  text-align: left;
 
   .type {
     border-bottom: 1px solid;
@@ -27,54 +33,59 @@ $type-ratio: 1.250; // Major third
   }
 
   h1 {
-    font-family: $serif;
+    font-family: $sans-serif-2;
     font-size: 1.8em;
-    font-weight: 700;
     margin-bottom: .5em;
 
     @include media($medium-screen) {
-      font-size: 2.6em;
+      font-size: 2.4em;
     }
   }
 
   h2 {
-    font-family: $sans-serif;
-    font-size: modular-scale($base-font-size, 3, $type-ratio);
+    font-family: $sans-serif-2;
+    font-size: 1.2em;
     font-weight: 400;
     line-height: 1.4em;
-    margin-bottom: 1.1em;
+    margin-bottom: .6em;
 
     @include media($medium-screen) {
-      font-size: modular-scale($base-font-size, 3, $type-ratio);
+      font-size: 1.4em;
     }
   }
 
   h3 {
-    font-family: $sans-serif;
-    font-size: modular-scale($base-font-size, 2, $type-ratio);
+    font-family: $sans-serif-2;
+    font-size: 1.2em;
     font-weight: 400;
     line-height: 1.3em;
-    margin-bottom: .4em;
+    margin-bottom: 0;
   }
 
   p.date {
     color: transparentize($base-font-color, .6);
-    font-family: $serif;
-    font-style: italic;
+    font-family: $sans-serif;
     font-size: .9em;
     margin-bottom: .3em;
   }
 
   p {
     font-family: $sans-serif;
-    line-height: 1.5em;
-    font-size: modular-scale($base-font-size, 0, $type-ratio);
+    line-height: 1.4em;
+    font-size: 1.05em;
+    font-weight: 300;
     margin-bottom: 1.5em;
+
+    span {
+      font-family: $sans-serif-2;
+      text-transform: uppercase;
+      font-size: 0.8em;
+    }
   }
 
   a.read-more {
     display: inline-block;
-    font-family: $sans-serif;
+    font-family: $sans-serif-2;
     font-weight: 700;
     font-size: .8em;
     text-transform: uppercase;
@@ -82,8 +93,6 @@ $type-ratio: 1.250; // Major third
     position: relative;
 
     span {
-      font-family: $sans-serif;
-      font-style: normal;
       position: absolute;
       font-size: 1.5em;
       top: -1px;
@@ -98,7 +107,7 @@ $type-ratio: 1.250; // Major third
   p.author {
     font-family: $sans-serif;
   }
-
+}
 
 @mixin grid-item-columns($columns) {
   width: (100% / 12) * $columns;
@@ -106,34 +115,30 @@ $type-ratio: 1.250; // Major third
 
 .grid-items {
   $grid-items-background: rgba(210, 200, 255, 0);
-  $grid-item-background: desaturate($base-accent-color, 30); 
+  $grid-item-background: desaturate($grid-items-background, 30); 
   $grid-item-colors: 
-    desaturate($base-accent-color, 30), 
-    #536A8B,
-    #625A92,
-    #4B877B, 
-    #495568,
-    #534E6D, 
-    #43655E;
+    rgb(83,106,139),
+    rgb(98, 90, 146),
+    rgb(75, 135, 123), 
+    rgb(73, 85, 104),
+    rgb(83, 78, 109), 
+    rgb(67, 101, 94);
   $grid-item-border-size: 9px;
   $grid-item-columns: 4;
   $grid-item-big-columns: 8;
-  $grid-item-color: #fff;
+  $grid-item-color: rgba(255, 255, 255, 1);
   $grid-item-height: 14em;
 
-  $card-background-color: #ddd;
+  $card-background-color: #fff;
   $card-border-color: $base-border-color;
+  $card-border: 1px solid $card-border-color;
 
-
-  $transparency-top: .6;
+  $transparency-top: 1;
   $image-gradient-color-bottom: #000; 
-  $transparency-bottom: .6;
+  $transparency-bottom: 0.5;
+  $background-transparency: 0.5;
   $vertical-angle: 180deg;
-
-  $transparency-left: .9;
-  $image-gradient-color-right: #000; 
-  $transparency-right: .8;
-  $horizontal-angle: 90deg;
+  
 
   @include clearfix;
     
@@ -156,6 +161,53 @@ $type-ratio: 1.250; // Major third
 
     @include perspective(1000px);
 
+    @for $i from 1 to 7 { 
+      // assign colors from $grid-item-colors list
+      &:nth-child(#{$i}) {
+        $background-from-list: nth($grid-item-colors, $i);
+        
+        .front {
+          box-shadow: inset 0px 0px 1px 2px darken($background-from-list, 10);
+          .overlay {
+            @include transition (all 0.4s ease-out);
+            @include linear-gradient($vertical-angle, transparentize($background-from-list, $transparency-top), 
+              transparentize($image-gradient-color-bottom, $transparency-bottom), $fallback: transparentize($background-from-list, .5));
+            display: block;
+            @include position(absolute, 0px 0px 0px 0px);
+
+            &:hover {
+              @include linear-gradient($vertical-angle, transparentize($background-from-list, 1), 
+              transparentize($image-gradient-color-bottom, 1));
+            }
+          }
+        }
+      }
+    }
+
+    a {
+      font-size: modular-scale($base-font-size, 0, $type-ratio);
+      padding: $base-line-height/3 $gutter/2;
+    }
+
+    .title {
+        @include transition (all 0.4s ease-out);
+        position: absolute;
+        z-index: 999;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+        background-color: transparentize(black, .6);
+        h3 {
+          padding: 1em 2em;
+          position: relative;
+          font-weight: 800;
+          font-size: modular-scale($base-font-size, -2, $type-ratio);
+          color: $grid-item-color;
+          margin-bottom: 0;
+        }
+      }
+      
+      
     /* front pane, placed above back */
     .front {
       @include transition (all 0.4s ease-out);
@@ -169,97 +221,39 @@ $type-ratio: 1.250; // Major third
       background-size: cover;
       background-position: top;
       background-repeat: no-repeat;
-  
-    
 
-    @for $i from 1 to 8 { 
-      // assign colors from $grid-item-colors list
-      &:nth-child(#{$i}) {
-        $background-from-list: nth($grid-item-colors, $i);
-        background-color: $background-from-list;
-        box-shadow: inset 0px 0px 1px 2px darken($background-from-list, 10);
-        &:hover {
-          background-color: darken($background-from-list, 10);
-          background-repeat: no-repeat;
-          background-position: top;
-          background-size: cover;
-        }
-
-        .overlay {
-          @include transition (all 0.4s ease-out);
-          @include linear-gradient($vertical-angle, transparentize($background-from-list, $transparency-top), 
-            transparentize($image-gradient-color-bottom, $transparency-bottom));
-          display: block;
-          @include position(absolute, 0px 0px 0px 0px);
-
-          /*
-          &:after {
-            content: '';
-            @include linear-gradient($horizontal-angle, transparentize($background-from-list, $transparency-left), 
-              transparentize($image-gradient-color-right, $transparency-right));
-            display: block;
-            @include position(absolute, 0px 0px 0px 0px);
-          }
-          */
-          &:hover {
-            @include linear-gradient($vertical-angle, transparentize($background-from-list, 1), 
-            transparentize($image-gradient-color-bottom, 1));
-          }
+      &:hover {
+        .title {
+          background-color: transparentize(black, 0);
         }
       }
     }
-    
-
-    img {
-      display: block;
-      height: 3em;
-      margin: auto;
-      margin-bottom: 1em;
-    }
-
-    .copy {
-      position: absolute;
-      left: 50%;
-      margin: auto;
-      z-index: 999;
-      top: 40%;
-      text-align: center;
-      h3 {
-        padding: 1em 2em;
-        border-radius: 1.5em;
-        position: relative;
-        left: -50%;
-        font-weight: 800;
-        font-size: modular-scale($base-font-size, -2, $type-ratio);
-        background-color: transparentize(black, .6);
-        color: $grid-item-color;
-        margin-bottom: .4em;
-      }
-    }
-
-    }
-    
 
     /* back, initially hidden pane */
     .back {
       @include transition (all 0.4s ease-out);
       z-index:700;
+      border: $card-border;
       position: absolute;
       background-color: $card-background-color;
+      box-shadow: 0 2px 4px darken($base-body-color, 10);
       height: 100%;
       width: 100%;
       top: 0;
       left: 0;
+      font-size: modular-scale($base-font-size, 0, $type-ratio);
+      font-weight: normal;
       @include transform(rotateY(-180deg));
       @include backface-visibility(hidden);
       text-align: left;
-      padding: 1em;
       .header {
-          border-bottom: 1px solid $card-border-color; 
+        padding: $base-line-height/3 $gutter/2;
+        border-bottom: $card-border; 
       }
 
       p {
-        font-size: modular-scale($base-font-size, -2, $type-ratio);
+        font-size: modular-scale($base-font-size, -1, $type-ratio);
+        padding: $base-line-height/2 $gutter/2;
       }
     }
 
@@ -304,11 +298,14 @@ header {
       border-left: 1px solid #000000;
       content: "";
       height: 42px;
-      left: -1px;
+      left: -37px;
       position: absolute;
-      top: 39px;
-      width: 20px;
+      top: 45px;
+      width: 24px;
+      border-radius: 150px 0 117px 0;
       z-index: 1;
+      @include transform(skewY(-190deg));
+      border-width: 30px;
     }
 
     &:after {
@@ -337,17 +334,20 @@ header {
     h1 {
         font-family: 'Holtwood One SC',serif;
         letter-spacing: 4px;
-        color: #fff;
         font-size: modular-scale($base-font-size, 2, $type-ratio);
         float: left;
         z-index: 1006;
         width: 29%;
         margin: 0 0 0 1%;
-    }
 
-    h1:first-letter {
-        font-size: 141%;
-        margin-right: 0;
+        a {
+          color: #fff;
+        }
+        .initial {
+          font-size: 141%;
+          margin-right: 0;
+          vertical-align: bottom;
+        }
     }
     
     nav {
@@ -384,8 +384,8 @@ section {
     border-radius: 8px 8px 8px 8px;
     box-shadow: 0 -1px 7px rgba(78, 68, 60, 0.3);
     background-color: rgba(210, 200, 255, 0.4);
-    padding: 12px 12px 0;
-    margin: 16px 0;
+    padding: .6em;
+    margin: 1em 0;
     overflow: hidden;
     clear: both;
         
@@ -399,8 +399,8 @@ section {
     }
 
     p {
-        font-weight: 700;
-        margin-bottom: 0;
+        font-weight: 500;
+        margin-bottom: .5em;
     }
 
     .modal {

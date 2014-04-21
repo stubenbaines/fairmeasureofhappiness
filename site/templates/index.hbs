@@ -1,14 +1,14 @@
 {{!< layout.hbs}}
 
   <div>
-  <section data-target="projects">
+  <section id="projects">
     <h2>Work Projects</h2>
     <p>Some of my recent web development projects.</p> 
     <div class="grid-items">
     {{#each contents.projects}}
         <div class="grid-item">
             <div class="front" style="background-image: url('{{this.metadata.thumb}}');">
-                <div class="copy">
+                <div class="title">
                     <h3>{{this.metadata.title}}</h3>
                 </div>
                 <div class="overlay"></div>
@@ -19,20 +19,23 @@
                         <p>{{{this.metadata.summary}}}</p>
                         <a href="{{this.url}}">More details</a>
                     </div>
+                    <div class="title">
+                        <h3>{{this.metadata.title}}</h3>
+                    </div>
                 </div>
             </div>
         </div>
    {{/each}}
     </div>
   </section>
-  <section class="music">
+  <section class="music" id="music">
     <h2>Music</h2>
     <p>I record, produce and play music using all-analog techniques and gear. All of the recordings were recorded and mixed to analog tape and use no digital tricks (autotune, edits, comping parts). Music I've recorded/produced has been featured on TV Shows (MTV, CBS) commercials (Nike) and major and indie movie soundtracks.</p>
     <div class="grid-items">
     {{#each contents.music}}
         <div class="grid-item">
             <div class="front" style="background-image: url('{{this.metadata.thumb}}');">
-                <div class="copy">
+                <div class="title">
                     <h3>{{this.metadata.title}}</h3>
                 </div>
                 <div class="overlay"></div>
@@ -40,8 +43,8 @@
             <div class="back">
                 <div class="content">
                     <div class="header">
-                        <p><strong>Artist:</strong> {{this.metadata.artist}}</p>
-                        <p><strong>Release:</strong> {{this.title}}</p>
+                        <div><strong>Artist:</strong> {{this.metadata.artist}}</div>
+                        <div><strong>Release:</strong> {{this.title}}</div>
                     </div>
                     <div class="copy">
                         <p>{{{this.metadata.summary}}}</p>
