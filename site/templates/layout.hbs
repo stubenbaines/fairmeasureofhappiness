@@ -45,7 +45,7 @@
     <header>
     <div class="content">
         <h1><a href="/"><span class="initial">D</span>ennis <span class="initial">P</span>ierce</a></h1>
-        
+        <p class="nav-menu">menu</p> 
         <nav>
             <ul>
             <li><a href="/#projects" class="skip">Projects</a></li>
@@ -106,6 +106,19 @@
             return false;
         }
       });
+      $(function() {
+        var navMenu = $('nav ul'),
+            menuToggle = $('.nav-menu');
+         $(menuToggle).on('click', function(e) {
+            e.preventDefault();
+
+            navMenu.slideToggle(function(){
+                if(navMenu.is(':hidden')) {
+                    navMenu.removeAttr('style');
+                }
+            });
+        });
+    });
   </script>
 
  <!-- Change UA-XXXXX-X to be your site's ID -->

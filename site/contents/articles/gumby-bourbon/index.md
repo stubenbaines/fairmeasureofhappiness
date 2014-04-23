@@ -2,7 +2,7 @@
 title: Why I Moved from Gumby to Bourbon 
 author: stubenbaines 
 date: 2014-04-19 15:00
-template: article.jade
+template: article.hbs
 ---
 
 I like the idea of using a CSS framework to simplify the layout of a page and also to rapidly prototype UI elements without having to write tons of code. If you need to slap some nice-looking buttons on the page then Twitter Bootstrap and Gumby have been a choice.
