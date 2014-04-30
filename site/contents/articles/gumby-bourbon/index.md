@@ -1,7 +1,7 @@
 ---
 title: Why I Moved from Gumby to Bourbon 
-author: stubenbaines 
-date: 2014-04-19 15:00
+author: Dennis Pierce 
+date: 2014-04-19
 template: article.hbs
 ---
 

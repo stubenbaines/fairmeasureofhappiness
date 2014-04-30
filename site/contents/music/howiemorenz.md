@@ -1,7 +1,7 @@
 ---
 artist: Spectres of the Erie Cut
 title: Howie Morenz
-date: 2013-12-01
+date: 2013-10-01
 summary: A tribute to hockey legend from many generations ago. 
 template: music.hbs
 thumb: /img/music/howie_morenz_thumb.jpg

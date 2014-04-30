@@ -5,6 +5,28 @@
 $sans-serif: 'Questrial', sans-serif;
 $serif: 'Sanchez', serif;
 $type-ratio: 1.250; // Major third
+$base-border-color: #ccc;
+$section-color: rgba(64, 141, 210, 0.2);
+$grid-items-border-color: $section-color;
+$grid-items-background: rgba(38, 83, 124, 1);
+$grid-item-background: desaturate($grid-items-background, 20); 
+$background-from-list: $grid-item-background;
+$grid-item-colors: 
+    rgb(83,106,139),
+    rgb(98, 90, 146),
+    rgb(75, 135, 123), 
+    rgb(73, 85, 104),
+    rgb(83, 78, 109), 
+    rgb(67, 101, 94);
+  $grid-item-border-size: 9px;
+  $grid-item-columns: 4;
+  $grid-item-big-columns: 8;
+  $grid-item-color: rgba(255, 255, 255, 1); // Text color.
+  $grid-item-height: 14em;
+
+  $card-background-color: #fff;
+  $card-border-color: $base-border-color;
+  $card-border: 1px solid $card-border-color;
 
 .show {
     display: block;
@@ -109,80 +131,50 @@ body {
   }
 }
 
-@mixin grid-item-columns($columns) {
-  width: (100% / 12) * $columns;
-}
-
 .grid-items {
-  $grid-items-background: rgba(210, 200, 255, 0);
-  $grid-item-background: desaturate($grid-items-background, 30); 
-  $grid-item-colors: 
-    rgb(83,106,139),
-    rgb(98, 90, 146),
-    rgb(75, 135, 123), 
-    rgb(73, 85, 104),
-    rgb(83, 78, 109), 
-    rgb(67, 101, 94);
-  $grid-item-border-size: 9px;
-  $grid-item-columns: 4;
-  $grid-item-big-columns: 8;
-  $grid-item-color: rgba(255, 255, 255, 1);
-  $grid-item-height: 14em;
-
-  $card-background-color: #fff;
-  $card-border-color: $base-border-color;
-  $card-border: 1px solid $card-border-color;
-
+  @include outer-container;
   $transparency-top: 1;
   $image-gradient-color-bottom: #000; 
   $transparency-bottom: 0.5;
   $background-transparency: 0.5;
   $vertical-angle: 180deg;
-  
-
-  @include clearfix;
     
   .grid-item {
+    @include media ($medium-screen) {
+      @include span-columns(4);
+      @include omega(3n);
+    }
     height: $grid-item-height;
     width: 100%;
     overflow: hidden;
     float: left;
     position: relative;
-    padding: 2em;
-    border-top: 0;
-    border-bottom: $grid-item-border-size solid $grid-items-background;
-    border-left: $grid-item-border-size /2 solid $grid-items-background;
-    border-right: $grid-item-border-size /2 solid $grid-items-background;
     text-align: center;
     cursor: pointer;
-    @include media($large-screen) {
-      @include grid-item-columns($grid-item-columns);
-    }
-
+    margin-bottom: 1em;
     @include perspective(1000px);
 
-    @for $i from 1 to 7 { 
+    //@for $i from 1 to 7 { 
       // assign colors from $grid-item-colors list
-      &:nth-child(#{$i}) {
-        $background-from-list: nth($grid-item-colors, $i);
+      //&:nth-child(#{$i}) {
+        //$background-from-list: nth($grid-item-colors, $i);
         
         .front {
           box-shadow: inset 0px 0px 1px 2px darken($background-from-list, 10);
           .overlay {
-            @include transition (all 0.4s ease-out);
+            @include transition (all 0.5s ease-in-out);
             background-color: transparentize($background-from-list, .4);
-            //@include linear-gradient($vertical-angle, transparentize($background-from-list, $transparency-top), transparentize($image-gradient-color-bottom, $transparency-bottom), $fallback: transparentize($background-from-list, .5));
             display: block;
             @include position(absolute, 0px 0px 0px 0px);
 
             &:hover {
-              @include linear-gradient($vertical-angle, transparentize($background-from-list, 1), 
-              transparentize($image-gradient-color-bottom, 1));
+              background-color: transparentize($background-from-list, 1);
+              //@include linear-gradient($vertical-angle, transparentize($background-from-list, 1), transparentize($image-gradient-color-bottom, 1));
             }
           }
         }
-      }
-    }
+      //}
+    //}
 
     a {
       font-size: modular-scale($base-font-size, 0, $type-ratio);
@@ -217,6 +209,7 @@ body {
       position: absolute;
       height: 100%;
       width: 100%;
+      @include backface-visibility(hidden);
       background: $grid-item-background;
       background-size: cover;
       background-position: top;
@@ -280,143 +273,147 @@ body {
 
 .container {
     border-left: 9px solid #000;
-}
 
-$navigation-color: #000;
-$navigation-height: 35px;
-$navigation-color-hover: #fff;
+    $navigation-color: #000;
+    $navigation-height: 35px;
+    $navigation-color-hover: #fff;
 
-header {
-    background-color: $navigation-color;
-    color: #fff;
-    height: 53px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    padding: 14px 0 0 0;
-    z-index: 1;
-
-    &:before {
-      background: none repeat scroll 0 0 #000000;
-      border-left: 1px solid #000000;
-      content: "";
-      height: 42px;
-      left: -37px;
-      position: absolute;
-      top: 45px;
-      width: 24px;
-      border-radius: 150px 0 117px 0;
-      z-index: 1;
-      @include transform(skewY(-190deg));
-      border-width: 30px;
-    }
-
-    &:after {
-      -moz-transform: skew(-3deg, -3deg);
-      -moz-transform-origin: left top;
-      background: transparent;
-      border-color: #000000;
-      border-radius: 65px 0 0 0;
-      border-style: solid;
-      border-width: 18px 0 0 1px;
-      content: "";
-      height: 40px;
-      left: -1px;
-      position: absolute;
-      top: 35px;
-      width: 90px;
-      z-index: 2;
-    }
-    .content {
-        padding: 0;
-        position: relative;
-        overflow: hidden;
-        z-index: 3;
-    }
-
-    h1 {
-        font-family: 'Holtwood One SC',serif;
-        letter-spacing: 4px;
-        font-size: modular-scale($base-font-size, 2, $type-ratio);
-        float: left;
-        z-index: 1006;
-        margin: 0 0 0 1%;
-        width: 60%;
-        @include media ($large-screen) {
-            width: 40%;
-        }
-
-        a {
-          color: #fff;
-        }
-        .initial {
-          font-size: 141%;
-          margin-right: 0;
-          vertical-align: bottom;
-        }
-    }
-    
-    .nav-menu {
-        color: $navigation-color-hover;
-        cursor: pointer;
-        display: block;
-        float: right;
-        font-family: $sans-serif;
-        font-weight: 700;
-        line-height: $navigation-height;
-        margin: 0;
-        padding-right: 1em;
-        text-transform: uppercase;
-
-        @include media ($large-screen) {
-            display: none;
-        }
-
-        &:hover {
-            color: $navigation-color-hover;
-       }
-    }
-    nav {
-        clear: both;
+    >header {
+        background-color: $navigation-color;
+        color: #fff;
+        height: 53px;
+        position: fixed;
         width: 100%;
-        @include media ($large-screen) {
-            width: 56%;
-            clear: none;
+        top: 0;
+        padding: 14px 0 0 0;
+        z-index: 1;
+
+        &:before {
+          background: none repeat scroll 0 0 #000000;
+          border-left: 1px solid #000000;
+          content: "";
+          height: 42px;
+          left: -37px;
+          position: absolute;
+          top: 45px;
+          width: 24px;
+          border-radius: 150px 0 125px 0;
+          z-index: 1;
+          @include transform(skewY(-190deg));
+          border-width: 30px;
+        }
+
+        &:after {
+          -moz-transform: skew(-3deg, -3deg);
+          -moz-transform-origin: left top;
+          background: transparent;
+          border-color: #000000;
+          border-radius: 65px 0 0 0;
+          border-style: solid;
+          border-width: 18px 0 0 1px;
+          content: "";
+          height: 40px;
+          left: -1px;
+          position: absolute;
+          top: 35px;
+          width: 90px;
+          z-index: 2;
+        }
+        .content {
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            z-index: 3;
+        }
+
+        h1 {
+            font-family: 'Holtwood One SC',serif;
+            letter-spacing: 4px;
+            
             float: left;
-            margin-left: 2%;
-        } 
-        ul {
-            display: none;
-            float: right;
-            background-color: #000;
-            padding-right: .3em;
+            z-index: 1006;
+            margin: 0 0 0 1%;
+            width: 60%;
+            font-size: modular-scale($base-font-size, 1, $type-ratio);
+            white-space: nowrap;
+
             @include media ($large-screen) {
-                display: block;
-                float: left;
-                padding-right: 0;
+              font-size: modular-scale($base-font-size, 2, $type-ratio);
+                width: 40%;
             }
-            li {
-                border-bottom: 1px solid #fff;
-                padding: .55em;
+
+            a {
+              color: #fff;
+            }
+            .initial {
+              font-size: 141%;
+              margin-right: 0;
+              vertical-align: bottom;
+            }
+        }
+        
+        .nav-menu {
+            color: $navigation-color-hover;
+            cursor: pointer;
+            display: block;
+            float: right;
+            font-family: $sans-serif;
+            font-weight: 700;
+            line-height: $navigation-height;
+            margin: 0;
+            padding-right: 1em;
+            text-transform: uppercase;
+
+            @include media ($large-screen) {
+                display: none;
+            }
+
+            &:hover {
+                color: $navigation-color-hover;
+           }
+        }
+        nav {
+            clear: both;
+            width: 100%;
+            @include media ($large-screen) {
+                width: 56%;
+                clear: none;
+                float: left;
+                margin-left: 2%;
+            } 
+            ul {
+                display: none;
+                float: right;
+                background-color: #000;
+                padding-right: .3em;
                 @include media ($large-screen) {
-                    padding: 0;
-                    border: none;
+                    display: block;
                     float: left;
-                    margin-right: 17px;
+                    padding-right: 0;
+                }
+                li {
+                    border-bottom: 1px solid #fff;
+                    padding: .55em;
+                    @include media ($large-screen) {
+                        padding: 0;
+                        border: none;
+                        float: left;
+                        margin-right: 17px;
+                    }
                 }
             }
         }
-    }
 
-    a {
-        color: #999999;
-        font-weight: bold;
-        font-size: modular-scale($base-font-size, -1, $type-ratio);
-        @include transition (color 1.0s);
-    }
-    
-    a:hover {
-        color: #ffffff;
+        a {
+            color: #999999;
+            font-weight: bold;
+            font-size: modular-scale($base-font-size, -1, $type-ratio);
+            @include transition (color 1.0s);
+        }
+        
+        a:hover {
+            color: #ffffff;
+        }
     }
 }
         
@@ -430,7 +427,7 @@ header {
 section {
     border-radius: 8px 8px 8px 8px;
     box-shadow: 0 -1px 7px rgba(78, 68, 60, 0.3);
-    background-color: rgba(210, 200, 255, 0.4);
+    background-color: $section-color;
     padding: .6em;
     margin: 1em 0;
     overflow: hidden;
@@ -445,7 +442,7 @@ section {
         font-weight: 700;
     }
 
-    p {
+    p, ul {
         font-weight: 500;
         margin-bottom: .5em;
     }
@@ -471,11 +468,8 @@ footer {
   .footer-logo {
     margin-right: 1em;
     margin-bottom: 1em;
-
-    @include media($large-screen) {
-      float: left;
-      margin-bottom: 0;
-    }
+    float: left;
+    margin-bottom: 0;
   }
 
   .footer-logo img {
@@ -551,12 +545,48 @@ footer {
   }
 }
 
-
+article {
+  footer {
+    background: none;
+    padding: 1.0em 1.5em 1em 0;
+    font-style: italic;
+  }
+}
 .music {
+    .content {
+      @include outer-container;
+      
+      img {
+        @include span-columns(4);
+        
+      }
+      .description {
+        @include span-columns(8);
+        .release {
+          display: block;
+          margin-top: 1em;
+        }
+      }
+    }
+
     iframe {
         border: 0;
         width: 100%;
         height: 42px;
+        margin-top: 1em;
+    }
+}
+
+.project {
+    @include outer-container;
+    margin-bottom: 2em;
+    min-height: 650px;
+    img {
+      @include span-columns(4);
+    }
+
+    .content {
+      @include span-columns(8);
     }
 }
 

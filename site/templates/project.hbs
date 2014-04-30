@@ -1,22 +1,16 @@
 {{!< layout.hbs}}
 
-<div class="row">
-    <div class="columns twelve">
-        <h1>{{page.title}}</h1>
-    </div>
-</div>
-<div class="row">
-    <div class="columns four">
-        <img src="{{page.metadata.image}}" />
-    </div>
-    <div class="columns eight">
-    <div class="description">
-        {{{page.html}}}
-    </div>
-    <div class="tech">
-        <h3>Technologies Used</h3>
-        {{page.metadata.technology}}
-    </div>
-    <a href="{{page.metadata.url}}" target="_blank">Visit live site</a>
+<h1>{{page.title}}</h1>
+<div class="project">
+    <img src="{{page.metadata.image}}" />
+    <div class="content">
+        <div class="description">
+            {{{page.html}}}
+        </div>
+        <div class="tech">
+            <h3>Technologies Used</h3>
+            {{page.metadata.technology}}
+        </div>
+        <a href="{{page.metadata.url}}" target="_blank">Visit live site</a>
     </div>
 </div>

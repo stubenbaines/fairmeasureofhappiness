@@ -1,17 +1,19 @@
 {{!< layout.hbs}}
 
-<div class="music">
+<div class="music" itemscope itemtype="http://schema.org/MusicRecording">
+    <meta itemprop="url" content="{{page.metadata.url}}" />
     <div class="header">
-        <h2>{{page.title}}</h2>
-        <h3>{{page.metadata.artist}}</h3>
-        <div class="released">Released: {{date}}</div>
+        <h2 itemprop="name">{{page.title}}</h2>
+        <h3 itemprop="byArtist">{{page.metadata.artist}}</h3>
+        <div class="released" itemprop="datePublished" content="{{date}}">Released: {{date}}</div>
     </div>
     <div class="content">
         <img src="{{page.metadata.image}}" />
-        <div class="description">
+        <div class="description" itemprop="description">
             {{{page.html}}}
+            <a class="release" href="{{page.metadata.url}}">Go to official release page</a>
         </div>
-        {{{page.metadata.player}}}
-        <a href="{{page.metadata.url}}">Go to official release page</a>
     </div>
+    {{{page.metadata.player}}}
 </div>
+{{>disqus}}

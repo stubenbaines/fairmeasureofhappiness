@@ -1,1 +1,14 @@
-{!< layout.hbs }}
+{{!< layout.hbs}}
+<article role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        <h1 itemprop="headline">{{page.title}}</h1>
+    </header>
+    <div class="content" itemprop="articleBody">
+        {{{typogr page.html}}}
+    </div>
+    <footer>
+        <span itemscope itemprop="author" itemtype="http://schema.org/Person">Written by <span itemprop="name"><a href="https://plus.google.com/+DennisPierce0?rel=author">Dennis Pierce</a></span></span>
+        on <time itemprop="datePublished" datetime="{{page.metadata.date}}">{{{date page.metadata.date}}}</time>
+    </footer>
+</article>
+{{>disqus}}

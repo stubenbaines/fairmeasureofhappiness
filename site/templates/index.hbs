@@ -1,11 +1,10 @@
 {{!< layout.hbs}}
-
   <div>
   <section id="projects">
     <h2>Work Projects</h2>
     <p>Some of my recent web development projects.</p> 
     <div class="grid-items">
-    {{#each contents.projects}}
+    {{#each (sorter contents.projects)}}
         <div class="grid-item">
             <div class="front" style="background-image: url('{{this.metadata.thumb}}');">
                 <div class="title">
@@ -30,9 +29,9 @@
   </section>
   <section class="music" id="music">
     <h2>Music</h2>
-    <p>I record, produce and play music using all-analog techniques and gear. All of the recordings were recorded and mixed to analog tape and use no digital tricks (autotune, edits, comping parts). Music I've recorded/produced has been featured on TV Shows (MTV, CBS) commercials (Nike) and major and indie movie soundtracks.</p>
+    <p>I record, produce, and play music using all-analog techniques and gear. All of the recordings were recorded and mixed to analog tape and use no digital tricks (autotune, edits, comping parts). Music I've recorded/produced has been featured on TV shows (MTV, CBS) commercials (Nike) and major and indie movie soundtracks.</p>
     <div class="grid-items">
-    {{#each contents.music}}
+    {{#each (sorter contents.music)}}
         <div class="grid-item">
             <div class="front" style="background-image: url('{{this.metadata.thumb}}');">
                 <div class="title">
@@ -55,6 +54,15 @@
         </div>
     {{/each}}
     </div>
+  </section>
+  <section id="blog">
+    <h2>Blog</h2>
+    <p>I sometimes write a blog post.</p> 
+    <ul class="articles">
+    {{#each contents.articles}}
+        <li><a href="{{this.[index.md].url}}">{{this.[index.md].metadata.title}}</a></li>
+    {{/each}}
+    </ul>
   </section>
     {{{page.html}}}
   </div>
