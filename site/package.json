@@ -1,4 +1,8 @@
 {
+  "name": "fairmeasureofhappiness",
+  "version": "0.1.0",
+  "author": "Dennis Pierce <dennis@fairmeasureofhappiness.com>",
+  "description": "Personal portfolio and blog of Dennis Pierce. Built using Wintersmith, Handlebars, and Bourbon.",
   "dependencies": {
     "moment": "2.3.x",
     "underscore": "1.4.x",
@@ -11,7 +15,8 @@
     "grunt-contrib-jshint": "~0.6.3",
     "grunt-contrib-nodeunit": "~0.2.0",
     "grunt-contrib-uglify": "~0.2.2",
-    "grunt-contrib-watch": "^0.6.1"
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-concat": "^0.4.0"
   },
   "repository": "none"
 }

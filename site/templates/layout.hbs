@@ -18,7 +18,7 @@
   <meta name="description" content="Portfolio and blog of Dennis Pierce - Web Developer, guitarist, and recording engineer.">
   <meta name="author" content="humans.txt">
 
-  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
   <!-- Facebook Metadata /-->
   <meta property="fb:page_id" content="774348857">
@@ -30,12 +30,10 @@
   <meta itemprop="name" content="A Fair Measure of Happiness">
   <meta itemprop="description" content="Portfolio and blog of Dennis Pierce - Web Developer, guitarist, and recording engineer.">
   <meta itemprop="image" content="">
-  <a href="https://plus.google.com/+DennisPierce0/about" rel="publisher" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
+  <link href="https://plus.google.com/+DennisPierce0/about" rel="publisher" />
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="alternate" href="http://www.fairmeasureofhappiness.com/feed.xml" type="application/rss+xml" title="Front-end web developer">
   <link href="http://fonts.googleapis.com/css?family=Holtwood+One+SC" rel="stylesheet" type="text/css">
   <script src="/js/libs/modernizr-2.8.1.min.js"></script>
 </head>
@@ -62,7 +60,7 @@
 
     <footer>
         <div class="footer-logo">
-            <a href="http://fairmeasureofhappiness.com"><img alt="Fair Measure of Happiness Logo" src="/img/shell/logo.png"></a></p>
+            <a href="http://fairmeasureofhappiness.com"><img alt="Fair Measure of Happiness Logo" src="/img/shell/logo.png"></a>
         </div>
         <div class="footer-secondary-links">
             <ul>
@@ -94,12 +92,11 @@
           }
         }
     </script>
-    <script type="text/javascript" src="/js/site.js"></script>
-    <script type="text/javascript" src="/js/libs/webkitAudioContextMonkeyPatch.js"></script>
+    <script type="text/javascript" src="/js/site.min.js"></script>
     <script type="text/javascript">
         Modernizr.load({
             test: Modernizr.webaudio,
-            yep : '/js/libs/band.min.js',
+            yep : ['/js/libs/webkitAudioContextMonkeyPatch.js', '/js/libs/band.min.js'],
             complete : function() {
                 site.initAudio();
             }

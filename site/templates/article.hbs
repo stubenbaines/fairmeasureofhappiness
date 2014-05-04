@@ -8,7 +8,7 @@
     </div>
     <footer>
         <span itemscope itemprop="author" itemtype="http://schema.org/Person">Written by <span itemprop="name"><a href="https://plus.google.com/+DennisPierce0?rel=author">Dennis Pierce</a></span></span>
-        on <time itemprop="datePublished" datetime="{{page.metadata.date}}">{{{date page.metadata.date}}}</time>
+        on <time itemprop="datePublished" datetime="{{{date page.metadata.date 'YYYY-MM-DD'}}}">{{{date page.metadata.date 'MMMM DD, YYYY'}}}</time>
     </footer>
 </article>
 {{>disqus}}

@@ -6,7 +6,7 @@ summary: Complete rewrite of Epicurious' recipe box to be an Ajax-driven single 
 template: project.hbs
 thumb: /img/projects/epi_recipebox_thumb.jpg
 image: /img/projects/epi_recipebox.jpg
-technology: Backbone, Underscore, Javascript, REST, Ajax. 
+technology: Backbone, Underscore, Javascript, REST, Ajax 
 tags: web
 url: http://www.epicurious.com/community/myepi/myrecipebox 
 ----

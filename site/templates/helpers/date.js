@@ -1,5 +1,5 @@
 var moment = require('moment');
 
-module.exports = function(date) {
-    return moment(date).format('MMMM DD, YYYY');
+module.exports = function(date, format) {
+    return moment(date).format(format);
 }

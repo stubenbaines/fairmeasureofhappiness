@@ -6,7 +6,7 @@ summary: Rewrite/redesign of Epicurious' recipe pages.
 template: project.hbs
 thumb: /img/projects/epi_recipe_thumb.jpg
 image: /img/projects/epi_recipe.jpg
-technology: Backbone, Underscore, Javascript, REST, Ajax, Spring. 
+technology: Backbone, Underscore, Javascript, REST, Ajax, Spring 
 tags: web
 url: http://www.epicurious.com/recipes/food/views/Sausage-Cheese-and-Basil-Lasagna-103005 
 ----

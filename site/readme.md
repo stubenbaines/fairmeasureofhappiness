@@ -1,11 +1,6 @@
 TODO: 
 - Fix images on thumbs.
-- Write about the blog.
 - Blog about marionnette modules.
-- Verify schema.org.
-- Check for image on project page.
 - footer in ios.
-- validate js grunt/hint/uglify 
-- menu
 - html code design
-- validate html markup
+- submit to wintersmith page.
