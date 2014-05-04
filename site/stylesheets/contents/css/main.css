@@ -675,10 +675,6 @@ body {
     width: 3em; }
   body p.author {
     font-family: "Nunito", sans-serif; }
-  body a {
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out; }
 
 .grid-items {
   *zoom: 1;
@@ -1126,11 +1122,11 @@ article footer {
     *display: inline;
     *vertical-align: auto;
     background: #999999;
-    border-radius: 0 0 1em 0;
+    border-radius: 0 0 2em 0;
     color: white;
     font-size: 0.75em;
     font-weight: 600;
     line-height: 1;
     margin-right: .5em;
-    padding: .5em 1.5em .5em 1em;
+    padding: .5em 1em;
     text-align: center; }

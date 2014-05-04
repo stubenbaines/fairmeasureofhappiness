@@ -38,6 +38,7 @@ $grid-item-colors:
 body {
   $sans-serif: 'Nunito', sans-serif;
   $sans-serif-2: 'Varela Round', sans-serif;
+  color: #222;
 
   @include clearfix;
   text-align: left;
@@ -94,7 +95,7 @@ body {
   p {
     font-family: $sans-serif;
     line-height: 1.4em;
-    font-size: 1.05em;
+    font-size: 1.4em;
     font-weight: 300;
     margin-bottom: 1.5em;
 
@@ -129,6 +130,10 @@ body {
   p.author {
     font-family: $sans-serif;
   }
+
+  a {
+    @include transition (all 0.5s ease-in-out);
+  }
 }
 
 .grid-items {
@@ -152,6 +157,7 @@ body {
     text-align: center;
     cursor: pointer;
     margin-bottom: 1em;
+    z-index: 0;
     @include perspective(1000px);
 
     //@for $i from 1 to 7 { 
@@ -297,25 +303,26 @@ body {
           position: absolute;
           top: 45px;
           width: 24px;
-          border-radius: 150px 0 125px 0;
+          border-radius: 150px 0 146px 0;
           z-index: 1;
-          @include transform(skewY(-190deg));
-          border-width: 30px;
+          @include transform(skewY(-204deg));
+          border-width: 34px;
         }
 
         &:after {
-          -moz-transform: skew(-3deg, -3deg);
-          -moz-transform-origin: left top;
+          @include transform(skewX(3deg));
+          @include transform(skewY(0deg));
+          @include transform-origin(left top);
           background: transparent;
           border-color: #000000;
-          border-radius: 65px 0 0 0;
+          border-radius: 70px 0 0 0;
           border-style: solid;
-          border-width: 18px 0 0 1px;
+          border-width: 15px 0 0 1px;
           content: "";
           height: 40px;
-          left: -1px;
+          left: -2px;
           position: absolute;
-          top: 35px;
+          top: 38px;
           width: 90px;
           z-index: 2;
         }
@@ -590,3 +597,26 @@ article {
     }
 }
 
+
+.technologies {
+    h3 {
+        border-bottom: 1px solid #aaa;
+    }
+    $badge-background: $medium-gray;
+    $badge-font-color: #fff;
+    $badge-font-size: $base-font-size * .75;
+    display: block;
+    margin-bottom: $base-line-height;
+    .tech {
+        @include inline-block;
+        background: $badge-background;
+        border-radius: 0 0 1em 0;
+        color: $badge-font-color;
+        font-size: $badge-font-size;
+        font-weight: 600;
+        line-height: 1;
+        margin-right: .5em;
+        padding: .5em 1.5em .5em 1em;
+        text-align: center;
+    }
+}

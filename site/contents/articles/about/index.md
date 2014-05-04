@@ -10,7 +10,8 @@ something that was receiving a decent amount of updates. I settled on Wintersmit
 layer removed. Also, HTML and Javascript are standards that aren't going anywhere, but who knows how long Jade will be around since there are so many competing template engines. Also, it's not like HTML is that hard to deal with so I don't need shortcuts. My one breaking of that rule is with SASS which I think is a great enhancement to CSS. My favorite part of SASS is how it is based on CSS syntax so you are starting for the CSS foundation and then adding enhancements rather than learning
 a new propertiary syntax like Jade or Coffeescript. Anyway, so far Wintersmith has been a good tool to use, but in the future I'm going to see if I can find a similar tool that doesn't use Coffeescript. 
 
-The front-end is pretty basic with no real Javascript coding except for some WebAudio API use for the notes in the footer. The CSS framework is using Bourbon, Neat, and Bitters. I originally tried Gumby but explain why I switched to Bourbon in another blog post.
+The front-end is pretty basic with no real Javascript coding except for some WebAudio API via the band.js library. Originally I was going to hand-code the WebAudio calls, but I wanted to specify rhythms and that's when things got more complicated than I wanted to deal with. band.js already has rhythms and notes worked out and it worked great for the small tune to play when clicking the footer logo. The CSS framework is using Bourbon, Neat, and Bitters. I originally tried Gumby but explain
+why I switched to Bourbon in another blog post.
 
 The name for my company comes from a scene in the silent movie *Intolerance*.
 
