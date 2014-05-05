@@ -2,7 +2,7 @@
 title: Epicurious Recipe Box 
 type: work
 date: 2013-07-15
-summary: Complete rewrite of Epicurious' recipe box to be an Ajax-driven single page application. 
+summary: Complete rewrite of Epicurious' recipe box to be an Ajax-driven, single-page application. 
 template: project.hbs
 thumb: /img/projects/epi_recipebox_thumb.jpg
 image: /img/projects/epi_recipebox.jpg

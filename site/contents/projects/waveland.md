@@ -2,7 +2,7 @@
 title: Waveland and Clark Furniture Store 
 date: 2013-10-15
 type: work
-summary: An ecommerce site built using Shopify 
+summary: A customized e-commerce site built using Shopify. 
 template: project.hbs
 thumb: /img/projects/waveland_thumb.jpg
 image: /img/projects/waveland.jpg

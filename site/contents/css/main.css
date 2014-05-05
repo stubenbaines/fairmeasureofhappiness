@@ -1054,6 +1054,11 @@ article footer {
   padding: 1.0em 1.5em 1em 0;
   font-style: italic; }
 
+.music h2 {
+  margin-bottom: 0; }
+.music .released {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: .5em; }
 .music .content {
   *zoom: 1;
   max-width: 68em;

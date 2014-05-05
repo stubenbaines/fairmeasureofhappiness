@@ -48,6 +48,9 @@ var site = (function() {
 })();
 
 $(function() {
+    // add class to pres to enable prettify.
+    $('pre').addClass('prettyprint');
+
     // set up click/tap panels
     $('.grid-item').on('click touchstart', function(e){
         if ($(e.target).attr('href')) {

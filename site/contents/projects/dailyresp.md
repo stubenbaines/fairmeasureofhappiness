@@ -2,7 +2,7 @@
 title: DailyResp Provider tool 
 date: 2013-12-15
 type: work
-summary: A widget to interact with 3rd party REST api to provide health care provider data. 
+summary: A widget that interacts with a 3rd party REST API and allows users to search for health care providers. 
 template: project.hbs
 image: /img/projects/dailyresp.jpg
 thumb: /img/projects/dailyresp_thumb.jpg

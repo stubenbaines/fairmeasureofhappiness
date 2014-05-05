@@ -94,13 +94,18 @@
     </script>
     <script type="text/javascript" src="/js/site.min.js"></script>
     <script type="text/javascript">
-        Modernizr.load({
-            test: Modernizr.webaudio,
-            yep : ['/js/libs/webkitAudioContextMonkeyPatch.js', '/js/libs/band.min.js'],
-            complete : function() {
-                site.initAudio();
+        Modernizr.load([
+            {
+                load: 'https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sunburst'
+            },
+            {
+                test: Modernizr.webaudio,
+                yep : ['/js/libs/webkitAudioContextMonkeyPatch.js', '/js/libs/band.min.js'],
+                complete : function() {
+                    site.initAudio();
+                }
             }
-        });
+        ]);
     </script>
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

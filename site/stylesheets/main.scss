@@ -560,6 +560,15 @@ article {
   }
 }
 .music {
+    h2 {
+        margin-bottom: 0;
+    }
+
+    .released {
+        border-bottom: 1px solid #aaa;
+        margin-bottom: .5em;
+    }
+
     .content {
       @include outer-container;
       

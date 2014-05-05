@@ -2,10 +2,12 @@
 
 <div class="music" itemscope itemtype="http://schema.org/MusicRecording">
     <meta itemprop="url" content="{{page.metadata.url}}" />
+    <meta itemprop="duration" content="PT{{{page.metadata.duration}}}"/>
+    <meta itemprop="inAlbum" content="{{page.metadata.album}}"/>
     <div class="header">
         <h2 itemprop="name">{{page.title}}</h2>
         <h3 itemprop="byArtist">{{page.metadata.artist}}</h3>
-        <div class="released" itemprop="datePublished" content="{{date}}">Released: {{date}}</div>
+        <div class="released" itemprop="datePublished" content="{{{date page.metadata.date 'YYYY-MM-DD'}}}">Released: {{{date page.metadata.date 'MMMM DD, YYYY'}}}</div>
     </div>
     <div class="content">
         <img src="{{page.metadata.image}}" />
