@@ -718,12 +718,12 @@ body {
         .grid-items .grid-item:nth-child(3n+1) {
           clear: left; } }
     .grid-items .grid-item .front {
-      box-shadow: inset 0px 0px 1px 2px #25384a; }
+      box-shadow: inset 0px 0px 1px 2px #345aa1; }
       .grid-items .grid-item .front .overlay {
         -webkit-transition: all 0.5s ease-in-out;
         -moz-transition: all 0.5s ease-in-out;
         transition: all 0.5s ease-in-out;
-        background-color: rgba(54, 82, 108, 0.6);
+        background-color: rgba(69, 113, 195, 0.4);
         display: block;
         position: absolute;
         top: 0px;
@@ -731,7 +731,7 @@ body {
         bottom: 0px;
         left: 0px; }
         .grid-items .grid-item .front .overlay:hover {
-          background-color: rgba(54, 82, 108, 0); }
+          background-color: rgba(69, 113, 195, 0); }
     .grid-items .grid-item a {
       font-size: 1em;
       padding: 0.5em 0.809em; }
@@ -764,7 +764,7 @@ body {
       width: 100%;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
-      background: #36526c;
+      background: #4571c3;
       background-size: cover;
       background-position: top;
       background-repeat: no-repeat; }
@@ -975,8 +975,8 @@ div[role] {
 
 section {
   border-radius: 8px 8px 8px 8px;
-  box-shadow: 0 -1px 7px rgba(78, 68, 60, 0.3);
-  background-color: rgba(64, 141, 210, 0.2);
+  box-shadow: 0 -1px 4px rgba(78, 68, 60, 0.3);
+  background-color: rgba(69, 149, 225, 0.2);
   padding: .6em;
   margin: 1em 0;
   overflow: hidden;

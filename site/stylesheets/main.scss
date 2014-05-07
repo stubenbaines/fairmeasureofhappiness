@@ -6,10 +6,9 @@ $sans-serif: 'Questrial', sans-serif;
 $serif: 'Sanchez', serif;
 $type-ratio: 1.250; // Major third
 $base-border-color: #ccc;
-$section-color: rgba(64, 141, 210, 0.2);
+$section-color: rgba(69, 149, 225, 0.2);
 $grid-items-border-color: $section-color;
-$grid-items-background: rgba(38, 83, 124, 1);
-$grid-item-background: desaturate($grid-items-background, 20); 
+$grid-item-background: rgba(69, 113, 195, 1);
 $background-from-list: $grid-item-background;
 $grid-item-colors: 
     rgb(83,106,139),
@@ -160,27 +159,20 @@ body {
     z-index: 0;
     @include perspective(1000px);
 
-    //@for $i from 1 to 7 { 
-      // assign colors from $grid-item-colors list
-      //&:nth-child(#{$i}) {
-        //$background-from-list: nth($grid-item-colors, $i);
-        
-        .front {
-          box-shadow: inset 0px 0px 1px 2px darken($background-from-list, 10);
-          .overlay {
-            @include transition (all 0.5s ease-in-out);
-            background-color: transparentize($background-from-list, .4);
-            display: block;
-            @include position(absolute, 0px 0px 0px 0px);
+       
+    .front {
+      box-shadow: inset 0px 0px 1px 2px darken($background-from-list, 10);
+      .overlay {
+        @include transition (all 0.5s ease-in-out);
+        background-color: transparentize($background-from-list, .6);
+        display: block;
+        @include position(absolute, 0px 0px 0px 0px);
 
-            &:hover {
-              background-color: transparentize($background-from-list, 1);
-              //@include linear-gradient($vertical-angle, transparentize($background-from-list, 1), transparentize($image-gradient-color-bottom, 1));
-            }
-          }
+        &:hover {
+          background-color: transparentize($background-from-list, 1);
         }
-      //}
-    //}
+      }
+    }
 
     a {
       font-size: modular-scale($base-font-size, 0, $type-ratio);
@@ -433,7 +425,7 @@ body {
 
 section {
     border-radius: 8px 8px 8px 8px;
-    box-shadow: 0 -1px 7px rgba(78, 68, 60, 0.3);
+    box-shadow: 0 -1px 4px rgba(78, 68, 60, 0.3);
     background-color: $section-color;
     padding: .6em;
     margin: 1em 0;
