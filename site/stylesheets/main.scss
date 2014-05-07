@@ -10,22 +10,15 @@ $section-color: rgba(69, 149, 225, 0.2);
 $grid-items-border-color: $section-color;
 $grid-item-background: rgba(69, 113, 195, 1);
 $background-from-list: $grid-item-background;
-$grid-item-colors: 
-    rgb(83,106,139),
-    rgb(98, 90, 146),
-    rgb(75, 135, 123), 
-    rgb(73, 85, 104),
-    rgb(83, 78, 109), 
-    rgb(67, 101, 94);
-  $grid-item-border-size: 9px;
-  $grid-item-columns: 4;
-  $grid-item-big-columns: 8;
-  $grid-item-color: rgba(255, 255, 255, 1); // Text color.
-  $grid-item-height: 14em;
+$grid-item-border-size: 9px;
+$grid-item-columns: 4;
+$grid-item-big-columns: 8;
+$grid-item-color: rgba(255, 255, 255, 1); // Text color.
+$grid-item-height: 14em;
 
-  $card-background-color: #fff;
-  $card-border-color: $base-border-color;
-  $card-border: 1px solid $card-border-color;
+$card-background-color: #fff;
+$card-border-color: $base-border-color;
+$card-border: 1px solid $card-border-color;
 
 .show {
     display: block;
@@ -34,10 +27,12 @@ $grid-item-colors:
 .hide {
   display: none;
 }
+
 body {
   $sans-serif: 'Nunito', sans-serif;
   $sans-serif-2: 'Varela Round', sans-serif;
   color: #222;
+  background: url("/img/css/parchment.png") repeat fixed 0 0 transparent;
 
   @include clearfix;
   text-align: left;
@@ -94,7 +89,10 @@ body {
   p {
     font-family: $sans-serif;
     line-height: 1.4em;
-    font-size: 1.4em;
+    font-size: modular-scale($base-font-size, 0, $type-ratio);
+    @include media ($large-screen) {
+        font-size: modular-scale($base-font-size, 1, $type-ratio);
+    }
     font-weight: 300;
     margin-bottom: 1.5em;
 
@@ -149,7 +147,7 @@ body {
       @include omega(3n);
     }
     height: $grid-item-height;
-    width: 100%;
+    width: 90%;
     overflow: hidden;
     float: left;
     position: relative;
@@ -261,14 +259,6 @@ body {
   }
 
 }
-
-body {
-    background: url("/img/css/parchment.png") repeat fixed 0 0 transparent;
-    @include clearfix;
-    text-align: left;
-    font-family: 'Lucida Sans Unicode','Lucida Grande',sans-serif;
-}
-
 .container {
     border-left: 9px solid #000;
 
@@ -442,7 +432,9 @@ section {
     }
 
     p, ul {
-        font-weight: 500;
+        @include media ($large-screen) {
+            font-weight: 500;
+        }
         margin-bottom: .5em;
     }
 
@@ -485,7 +477,9 @@ footer {
   }
 
   ul li {
-    padding-right: 1em;
+    @include media($large-screen) {
+        padding-right: 1em;
+    }
     font-weight: 800;
     color: $footer-link-color;
 
@@ -535,7 +529,7 @@ footer {
         opacity: .7;
         height: 1.9em;
         padding: 1px;
-
+        max-width: none;
         &:hover {
           opacity: 1;
         }
